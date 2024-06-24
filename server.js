@@ -5,14 +5,16 @@ const express  = require("express");
 const routesHandler = require('./routes/workout');
 const app = express();
 
+app.use(cors({
+    origin: 'https://your-frontend-domain.com', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
+    credentials: true,
+}));
+
 
 // middleware
 
-app.use(express.json());    // to access the req during post and patch
-// app.use((req,res,next)=>{
-//     console.log(req.path,req.method);
-//     next();
-// });
+app.use(express.json());
 
 
 app.use('/api/workouts',routesHandler);
