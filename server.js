@@ -2,11 +2,12 @@ require("dotenv").config()
 const PORT = process.env.PORT;
 const mongoose = require('mongoose');
 const express  = require("express");
+const cors = require('cors');
 const routesHandler = require('./routes/workout');
 const app = express();
 
 app.use(cors({
-    origin: 'https://your-frontend-domain.com', 
+    origin: true, 
     methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
     credentials: true,
 }));
